@@ -17,7 +17,8 @@ class Camera:
 		self.max_frames = 5*self.fps
 		self.frames = []
 		self.isrunning = False
-	def run(self):
+
+    def run(self):
 		logging.debug("Perparing thread")
 		global thread
 		if thread is None:
@@ -43,7 +44,8 @@ class Camera:
 	def stop(self):
 		logger.debug("Stopping thread")
 		self.isrunning = False
-	def get_frame(self, _bytes=True):
+	
+    def get_frame(self, _bytes=True):
 		if len(self.frames)>0:
 			if _bytes:
 				img = cv2.imencode('.png',self.frames[-1])[1].tobytes()
